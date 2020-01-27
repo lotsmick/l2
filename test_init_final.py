@@ -1086,14 +1086,14 @@ while True:
 
 			for i in range(bossNum):
 				################ 보스 컷처리 ################ 
-				if message.content.startswith(bossData[i][0] + '컷'):
+				if message.content.startswith(bossData[i][0] + ' 컷'):
 					if hello.find('  ') != -1 :
 						bossData[i][6] = hello[hello.find('  ')+2:]
 						hello = hello[:hello.find('  ')]
 					else:
 						bossData[i][6] = ''
 						
-					tmp_msg = bossData[i][0] + '컷'
+					tmp_msg = bossData[i][0] + ' 컷'
 					if len(hello) > len(tmp_msg) + 3 :
 						if hello.find(':') != -1 :
 							chkpos = hello.find(':')
@@ -1142,14 +1142,14 @@ while True:
 
 				################ 보스 멍 처리 ################ 
 
-				if message.content.startswith(bossData[i][0] + '멍'):
+				if message.content.startswith(bossData[i][0] + ' 멍'):
 					if hello.find('  ') != -1 :
 						bossData[i][6] = hello[hello.find('  ')+2:]
 						hello = hello[:hello.find('  ')]
 					else:
 						bossData[i][6] = ''
 						
-					tmp_msg = bossData[i][0] + '멍'
+					tmp_msg = bossData[i][0] + ' 멍'
 					tmp_now = datetime.datetime.now() + datetime.timedelta(hours = int(basicSetting[0]))
 
 					if len(hello) > len(tmp_msg) + 3 :
@@ -1217,14 +1217,14 @@ while True:
 					
 			################ 예상 보스 타임 입력 ################ 
 
-				if message.content.startswith(bossData[i][0] + '예상'):
+				if message.content.startswith(bossData[i][0] + ' 예상'):
 					if hello.find('  ') != -1 :
 						bossData[i][6] = hello[hello.find('  ')+2:]
 						hello = hello[:hello.find('  ')]
 					else:
 						bossData[i][6] = ''
 						
-					tmp_msg = bossData[i][0] + '예상'
+					tmp_msg = bossData[i][0] + ' 예상'
 					if len(hello) > len(tmp_msg) + 3 :
 						if hello.find(':') != -1 :
 							chkpos = hello.find(':')
@@ -1262,7 +1262,7 @@ while True:
 						
 				################ 보스타임 삭제 ################
 					
-				if message.content == bossData[i][0] + '삭제':
+				if message.content == bossData[i][0] + ' 삭제':
 					bossTime[i] = datetime.datetime.now()+datetime.timedelta(days=365, hours = int(basicSetting[0]))
 					tmp_bossTime[i] =  datetime.datetime.now()+datetime.timedelta(days=365, hours = int(basicSetting[0]))
 					bossTimeString[i] = '99:99:99'
@@ -1279,14 +1279,14 @@ while True:
 				
 				################ 보스별 메모 ################ 
 
-				if message.content.startswith(bossData[i][0] + '메모 '):
+				if message.content.startswith(bossData[i][0] + ' 메모 '):
 					
-					tmp_msg = bossData[i][0] + '메모 '
+					tmp_msg = bossData[i][0] + ' 메모 '
 					
 					bossData[i][6] = hello[len(tmp_msg):]
 					await client.get_channel(channel).send('< ' + bossData[i][0] + ' [ ' + bossData[i][6] + ' ] 메모등록 완료>', tts=False)
 					
-				if message.content.startswith(bossData[i][0] + '메모삭제'):
+				if message.content.startswith(bossData[i][0] + ' 메모삭제'):
 					
 					bossData[i][6] = ''
 					await client.get_channel(channel).send('< ' + bossData[i][0] + ' 메모삭제 완료>', tts=False)
